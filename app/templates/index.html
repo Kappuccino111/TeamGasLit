@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+<!-- Centered title -->
+<h1 id="main-title"> 🇩🇪 Watt Lies Beneath: Gaslighting on Full Power 🇩🇪</h1>
+
+<!-- Centered search input and button -->
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="Search for a location in Germany">
+    <button id="search-button">Search</button>
+</div>
+
+<!-- Checkboxes and radius input fields -->
+<div id="checkboxes-container">
+    <!-- Checkbox for power substations -->
+    <div class="checkbox-item">
+        <input type="checkbox" id="show-power-stations" />
+        <label for="show-power-stations">Power Substations</label>
+    </div>
+
+    <!-- Checkbox for EV stations -->
+    <div class="checkbox-item">
+        <input type="checkbox" id="show-ev-stations" />
+        <label for="show-ev-stations">EV Charging Stations</label>
+    </div>
+
+    <!-- Checkbox for Power Substations minus EV Substations -->
+    <div class="checkbox-item">
+        <input type="checkbox" id="show-power-minus-ev" />
+        <label for="show-power-minus-ev">Power Substations minus EV Stations (5 km)</label>
+    </div>
+
+    <!-- Checkbox for Autobahns / Main Roads -->
+    <div class="checkbox-item">
+        <input type="checkbox" id="show-autobahns" />
+        <label for="show-autobahns">Autobahns / Main Roads</label>
+    </div>
+
+    <!-- Checkbox for Traffic Layer -->
+    <div class="checkbox-item">
+        <input type="checkbox" id="show-traffic" />
+        <label for="show-traffic">Traffic Data</label>
+    </div>
+</div>
+
+<!-- Centered radius input -->
+<div id="radius-container">
+    <label for="radius-input">Radius (km): </label>
+    <input type="number" id="radius-input" value="20" min="1" max="100" />
+</div>
+
+<!-- Map container -->
+<div id="map"></div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+{% endblock %}
